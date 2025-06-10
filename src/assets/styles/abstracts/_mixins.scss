@@ -1,0 +1,52 @@
+// Breakpoints
+@mixin breakpoint($point) {
+  @if $point==smallMobileScreen {
+    @media (max-width: 300px) {
+      @content;
+    }
+  }
+
+  @if $point==mobileScreen {
+    @media (max-width: 745px) {
+      @content;
+    }
+  }
+
+  @if $point==tabletScreen {
+    @media (min-width: 746px) and (max-width: 980px) {
+      @content;
+    }
+  }
+
+  @if $point==smallScreen {
+    @media (min-width: 981px) and (max-width: 1280px) {
+      @content;
+    }
+  }
+
+  @if $point==mediumScreen {
+    @media (min-width: 1281px) and (max-width: 1600px) {
+      @content;
+    }
+  }
+
+  @if $point==largeScreen {
+    @media (min-width: 1601px) and (max-width: 1919px) {
+      @content;
+    }
+  }
+
+  @if $point==ultraLargeScreen {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  }
+}
+
+@mixin multiple-media($media...) {
+  @each $query in $media {
+    @include breakpoint($query) {
+      @content;
+    }
+  }
+}
