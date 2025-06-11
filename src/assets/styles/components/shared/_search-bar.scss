@@ -5,8 +5,11 @@
   padding: 1rem;
   background-color: $shade-50;
   margin: 2rem;
+  display: flex;
+  align-items: center;
 
   input {
+    height: 2rem;
     width: 100%;
     max-width: 500px;
     padding: 0.5rem 1rem;
@@ -17,5 +20,10 @@
     &:focus {
       outline: none;
     }
+  }
+
+  .clear-button {
+    height: 2rem;
+    border-radius: 0;
   }
 }
