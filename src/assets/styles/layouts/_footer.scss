@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.footer {
+  margin-top: auto;
+  padding: 1.5rem 3rem;
+  text-align: center;
+  color: $shade-900;
+  background-color: $shade-50;
+
+  &-text {
+    font-size: .8rem;
+    line-height: 1;
+    margin: 0;
+  }
+}

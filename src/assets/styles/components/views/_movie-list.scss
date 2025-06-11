@@ -1,0 +1,33 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem;
+    background-color: $shade-900;
+
+    &-title {
+      color: $shade-50;
+      font-weight: bold;
+    }
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+  }
+}

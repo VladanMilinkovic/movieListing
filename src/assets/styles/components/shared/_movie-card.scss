@@ -1,0 +1,58 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  background-color: $shade-50;
+  padding: .5rem;
+  justify-content: space-between;
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: .5rem;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 2rem;
+
+    .title {
+      font-weight: bold;
+    }
+
+    .description {
+      display: flex;
+      gap: 1rem;
+
+      p {
+        display: flex;
+        flex-direction: row;
+        white-space: nowrap;
+        gap: .5rem;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  &-actions {
+    .star-button {
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: $secondary-50;
+    }
+  }
+}
+
+.card-header {
+
+}
+
+

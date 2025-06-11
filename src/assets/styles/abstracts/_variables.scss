@@ -1,33 +1,16 @@
 // Colors
 $shade-50: #ffffff;
-$shade-200: #f5f5f5;
-$shade-700: #212121;
-$shade-800: #191919;
+$shade-100: #f2f2f2;
+$shade-300: #999999;
 $shade-900: #000000;
 $primary-50: #0072ed;
-$primary-100: #00ffff;
-$primary-200: #00ffff;
-$primary-300: #00f27a;
-$primary-400: #fa663d;
-$secondary-100: #b5b5b5;
-$secondary-200: #e5e6e5;
-$secondary-300: #757575;
-$secondary-400: #e4e4e4;
-$secondary-500: #666666;
-$secondary-600: #e5e5e5;
-$secondary-700: #b5b5b5;
-$secondary-800: #d2d2d2;
-$warning-100: #faf533;
-$warning-150: #fedb06;
-$warning-200: #e00200;
+$secondary-50: #f5a623;
 
 // Size
 $container: 1440px;
 
-// Font
-$bold: "ProBold";
-$regular: "ProRegular";
-$medium: "ProMedium";
+$sidebar-normal-width: 18rem;
+$sidebar-small-width: 8rem;
 
 // Element width
 $full-viewport-height: calc(var(--vh, 1vh) * 100);

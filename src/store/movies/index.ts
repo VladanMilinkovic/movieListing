@@ -14,10 +14,10 @@ export const useMovieStore = defineStore("movieStore", {
     getters: {
         getMovies: (state) => state.movies,
         getFavoriteMovies: (state) => state.favorites,
-        isFavorite: (state) => {
-            return (movieId: string) =>
-                state.favorites.some((m) => m.imdbID === movieId)
-        }
+        getCurrentPage: (state) => state.currentPage,
+        getTotalPages: (state) => state.totalPages,
+        getTotalResults: (state) => state.totalResults,
+        getSearchTerm: (state) => state.searchTerm
     },
     actions: {
         updateMovies(response: MovieApiResponse) {
@@ -40,6 +40,9 @@ export const useMovieStore = defineStore("movieStore", {
             } else {
                 this.favorites.push(movie)
             }
+        },
+        isFavorite(movieId: string): boolean {
+            return this.favorites.some((m) => m.imdbID === movieId)
         }
     },
 });

@@ -12,6 +12,19 @@
 @use "./base/reset";
 @use "./base/typography";
 
+// Layouts
+@use "./layouts/footer";
+@use "./layouts/side-nav";
+@use "./layouts/page";
+
+// Components Shared
+@use "./components/shared/movie-card";
+@use "./components/shared/pagination";
+@use "./components/shared/search-bar";
+
+// Components Views
+@use "./components/views/movie-list";
+@use "./components/views/favorites";
 
 
 

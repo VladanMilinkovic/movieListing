@@ -1,0 +1,60 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.side-nav {
+  display: flex;
+  width: $sidebar-normal-width;
+  height: 100vh !important;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: $shade-900;
+  transition: all 0.25s ease;
+  padding: 2rem;
+
+  @include multiple-media(smallMobileScreen, mobileScreen) {
+    left: -100%;
+    z-index: 1000;
+  }
+
+  &-title {
+    color: $shade-50;
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+  }
+
+  &-separator {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  &-menu {
+    display: flex;
+    padding: 2rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    flex: 1 0 0;
+    align-self: stretch;
+    transition: all .25s ease;
+
+    .side-nav-item {
+
+      .nav-link {
+        color: $shade-300;
+        transition: color .25s ease;
+
+        &.active {
+          color: $shade-50;
+        }
+
+        &:hover {
+          color: $shade-50;
+        }
+      }
+    }
+  }
+}

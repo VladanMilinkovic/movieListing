@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.movies {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: $shade-100;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  height: 100vh;
+
+  .page {
+    display: flex;
+    overflow: auto;
+    flex-grow: 1;
+  }
+}
