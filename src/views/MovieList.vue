@@ -27,7 +27,6 @@ import { useMovieStore } from '@/store/movies';
 import MovieCard from "@/components/movies/MovieCard.vue";
 import Pagination from "@/components/common/Pagination.vue";
 import SearchBar from "@/components/common/SearchBar.vue";
-import {searchMovies} from "@/api/movies";
 
 const MovieStore = useMovieStore()
 
@@ -39,25 +38,16 @@ const currentPage = computed(() => {
   return MovieStore.getCurrentPage;
 })
 
-const searchTerm = computed(() => {
-  return MovieStore.getSearchTerm;
-})
-
 const totalPages = computed(() => {
   return MovieStore.getTotalPages;
 })
-
-const fetchMovies = async () => {
-  const response = await searchMovies(searchTerm.value || '', currentPage.value)
-  MovieStore.updateMovies(response)
-}
 
 const handlePageChange = (page: number) => {
   MovieStore.setCurrentPage(page)
   // fetchMovies(page)
 }
 onMounted(() => {
-  fetchMovies();
+  MovieStore.fetchMovies()
 })
 </script>
 

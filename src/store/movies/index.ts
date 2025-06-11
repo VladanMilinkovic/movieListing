@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type {IMoviesStore} from "./types.ts";
-import type { Movie, MovieApiResponse } from "../../api/movies/types.ts";
+import type { Movie, MovieApiResponse } from "@/api/movies/types.ts";
+import {searchMovies} from "@/api/movies";
 
 export const useMovieStore = defineStore("movieStore", {
     state: (): IMoviesStore => ({
@@ -20,6 +21,10 @@ export const useMovieStore = defineStore("movieStore", {
         getSearchTerm: (state) => state.searchTerm
     },
     actions: {
+        async fetchMovies() {
+            const response = await searchMovies(this.searchTerm, this.currentPage)
+            this.updateMovies(response)
+        },
         updateMovies(response: MovieApiResponse) {
             this.movies = response.data;
             this.currentPage = response.page
