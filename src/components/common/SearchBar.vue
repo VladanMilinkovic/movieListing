@@ -1,18 +1,21 @@
 <template>
   <div class="search-bar">
-    <input
-        type="text"
-        v-model="searchInput"
-        placeholder="Search movies..."
-        @input="handleInput"
-    />
-    <button
-        class="clear-button"
-        :disabled="!searchInput.trim()"
-        @click="clearSearchHandler"
-    >
-      Clear
-    </button>
+    <div class="search-bar-items">
+      <input
+          type="text"
+          v-model="searchInput"
+          placeholder="Search movies..."
+          @input="handleInput"
+      />
+      <button
+          class="clear-button"
+          :disabled="!searchInput.trim()"
+          @click="clearSearchHandler"
+      >
+        Clear
+      </button>
+    </div>
+    <button class="hamburger" @click="toggleSideBar">☰</button>
   </div>
 </template>
 
@@ -40,5 +43,10 @@ const clearSearchHandler = () => {
   MovieStore.setCurrentPage(1)
   MovieStore.fetchMovies()
 }
+
+const toggleSideBar = () => {
+  const body = document.body;
+  body.classList.toggle("mobile-nav");
+};
 </script>
 

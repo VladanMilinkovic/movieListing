@@ -7,12 +7,32 @@
   padding: 2rem;
   width: 100%;
 
+  @include multiple-media(mobileScreen, tabletScreen) {
+    padding: 1rem;
+  }
+
   &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: $shade-50;
     padding: 1rem;
 
     &--title {
       font-size: 1rem;
+    }
+
+    .hamburger {
+      display: none;
+      align-self: center;
+      font-size: 1.5rem;
+      border: none;
+      cursor: pointer;
+      padding: 0 .5rem;
+
+      @include multiple-media(mobileScreen, tabletScreen) {
+        display: flex;
+      }
     }
   }
 
@@ -20,6 +40,11 @@
     display: flex;
     flex-direction: column;
     padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include multiple-media(mobileScreen) {
+      padding-bottom: 0;
+    }
   }
 
   .no-items {

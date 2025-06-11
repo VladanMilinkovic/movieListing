@@ -2,6 +2,7 @@
   <section class="favorites">
     <div class="favorites-header">
       <h2 class="favorites-header--title">My Favorite Movies</h2>
+      <button class="hamburger" @click="toggleSideBar">☰</button>
     </div>
     <div v-if="favoritesMovies.length" class="favorites-items">
       <MovieCard
@@ -25,4 +26,9 @@ const MovieStore = useMovieStore()
 const favoritesMovies = computed(() => {
   return MovieStore.getFavoriteMovies;
 });
+
+const toggleSideBar = () => {
+  const body = document.body;
+  body.classList.toggle("mobile-nav");
+};
 </script>

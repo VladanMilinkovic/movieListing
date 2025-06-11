@@ -1,11 +1,16 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../mixins/scrollbar" as *;
 
 .movies {
   display: flex;
   flex-direction: row;
   height: 100vh;
   background-color: $shade-100;
+
+  @include multiple-media(mobileScreen) {
+    height: 100%;
+  }
 }
 
 .main-content {
@@ -15,9 +20,15 @@
   overflow: hidden;
   height: 100vh;
 
+  @include multiple-media(mobileScreen) {
+    min-height: 100vh;
+    height: 100%;
+  }
+
   .page {
     display: flex;
     overflow: auto;
     flex-grow: 1;
+    @include hide-scroll-bar();
   }
 }
