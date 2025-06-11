@@ -15,6 +15,8 @@
       <Pagination
           :currentPage="currentPage"
           :totalPages="totalPages"
+          :total-results="totalResults"
+          :per-page="10"
           @page-change="handlePageChange"
       />
     </div>
@@ -42,9 +44,13 @@ const totalPages = computed(() => {
   return MovieStore.getTotalPages;
 })
 
+const totalResults = computed(() => {
+  return MovieStore.getTotalResults;
+})
+
 const handlePageChange = (page: number) => {
   MovieStore.setCurrentPage(page)
-  // fetchMovies(page)
+  MovieStore.fetchMovies()
 }
 onMounted(() => {
   MovieStore.fetchMovies()

@@ -1,21 +1,26 @@
 <template>
   <nav class="pagination" v-if="totalPages > 1">
-    <button :disabled="currentPage === 1" @click="changePage(currentPage - 1)">
-      Prev
-    </button>
+    <div class="info">
+      Showing {{ from }} to {{ to }} of {{ totalResults }} movies
+    </div>
 
-    <button
-        v-for="page in visiblePages"
-        :key="page"
-        :class="{ active: page === currentPage }"
-        @click="changePage(page)"
-    >
-      {{ page }}
-    </button>
+    <div class="controls">
+      <button :disabled="currentPage === 1" @click="changePage(1)">
+        «
+      </button>
+      <button :disabled="currentPage === 1" @click="changePage(currentPage - 1)">
+        ‹
+      </button>
 
-    <button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)">
-      Next
-    </button>
+      <span class="page-info">{{ currentPage }} of {{ totalPages }}</span>
+
+      <button :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)">
+        ›
+      </button>
+      <button :disabled="currentPage === totalPages" @click="changePage(totalPages)">
+        »
+      </button>
+    </div>
   </nav>
 </template>
 
@@ -25,6 +30,8 @@ import { computed } from 'vue'
 const props = defineProps<{
   currentPage: number
   totalPages: number
+  totalResults: number
+  perPage: number
 }>()
 
 const emit = defineEmits<{
@@ -37,13 +44,7 @@ const changePage = (page: number) => {
   }
 }
 
-const visiblePages = computed(() => {
-  const range = []
-  const min = Math.max(1, props.currentPage - 2)
-  const max = Math.min(props.totalPages, props.currentPage + 2)
-  for (let i = min; i <= max; i++) {
-    range.push(i)
-  }
-  return range
-})
+const from = computed(() => (props.currentPage - 1) * props.perPage + 1)
+const to = computed(() => Math.min(props.currentPage * props.perPage, props.totalResults))
 </script>
+

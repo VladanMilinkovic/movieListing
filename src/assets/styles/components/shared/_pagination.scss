@@ -1,26 +1,37 @@
 .pagination {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.info {
+  font-size: 14px;
+  color: #666;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
-  margin-top: 2rem;
+}
 
-  button {
-    background: white;
-    border: 1px solid #ccc;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s ease;
+button {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
 
-    &.active {
-      background-color: #007bff;
-      color: white;
-      font-weight: bold;
-    }
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-  }
+.page-info {
+  font-weight: bold;
+  padding: 0 0.5rem;
 }
