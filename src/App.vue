@@ -11,6 +11,14 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted } from "vue";
 import SideNav from "@/components/layout/SideNav.vue";
 import AppFooter from '@/components/layout/Footer.vue';
+
+import { useMovieStore } from '@/store/movies'
+
+onMounted(() => {
+  const MovieStore = useMovieStore()
+  MovieStore.loadFavoritesFromStorage()
+})
 </script>

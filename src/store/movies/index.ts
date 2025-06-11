@@ -40,9 +40,17 @@ export const useMovieStore = defineStore("movieStore", {
             } else {
                 this.favorites.push(movie)
             }
+
+            localStorage.setItem('favorites', JSON.stringify(this.favorites))
         },
         isFavorite(movieId: string): boolean {
             return this.favorites.some((m) => m.imdbID === movieId)
+        },
+        loadFavoritesFromStorage() {
+            const data = localStorage.getItem('favorites')
+            if (data) {
+                this.favorites = JSON.parse(data)
+            }
         }
     },
 });
