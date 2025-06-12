@@ -9,7 +9,6 @@
           v-for="movie in favoritesMovies"
           :key="movie.imdbID"
           :movie="movie"
-          :favorites="true"
       />
     </div>
     <p v-else class="no-items">No favorite movies have been added.</p>

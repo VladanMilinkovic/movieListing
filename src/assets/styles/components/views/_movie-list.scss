@@ -36,3 +36,10 @@
     flex-direction: column;
   }
 }
+
+.no-items {
+  color: $shade-900;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 2rem;
+}

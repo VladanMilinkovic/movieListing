@@ -20,6 +20,7 @@
           @page-change="handlePageChange"
       />
     </div>
+    <p v-if="!movies?.length" class="no-items">No movies match the selected search criteria.</p>
   </div>
 </template>
 
